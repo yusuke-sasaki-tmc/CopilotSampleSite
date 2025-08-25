@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>古の個人サイト</title>
+    <style>
+        body {
+            background: url('bg_pattern.gif') repeat;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td {
+            padding: 0;
+        }
+        .rainbow-border {
+            border: 4px solid;
+            border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
+        }
+        .hidden-link {
+            display: block;
+            width: 1px;
+            height: 1px;
+        }
+        .center {
+            text-align: center;
+        }
+        .marquee {
+            color: red;
+            font-weight: bold;
+            animation: blink 1s steps(2, start) infinite;
+        }
+        @keyframes blink {
+            to { visibility: hidden; }
+        }
+    </style>
+    <script>
+        // キラキラエフェクト
+        document.addEventListener('mousemove', function(e) {
+            const star = document.createElement('div');
+            star.style.position = 'absolute';
+            star.style.left = e.pageX + 'px';
+            star.style.top = e.pageY + 'px';
+            star.style.width = '5px';
+            star.style.height = '5px';
+            star.style.background = 'yellow';
+            star.style.borderRadius = '50%';
+            star.style.boxShadow = '0 0 10px yellow';
+            star.style.pointerEvents = 'none';
+            document.body.appendChild(star);
+            setTimeout(() => star.remove(), 500);
+        });
+
+        // 右クリック禁止
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('右クリック禁止！');
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="3" class="center">
+                <!-- タイトル画像 -->
+                <img src="title_image.gif" alt="古の個人サイト">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="center">
+                <!-- 虹色罫線 -->
+                <hr class="rainbow-border">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="center">
+                <!-- マーキー -->
+                <marquee class="marquee">いらっしゃいませ！！！</marquee>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="center">
+                <!-- カウンター -->
+                <img src="counter.cgi?start=200123" alt="カウンター">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="center">
+                <!-- キリ番報告フォーム -->
+                <form action="guest.cgi" method="post">
+                    <label>キリ番報告: <input type="text" name="report"></label>
+                    <button type="submit">送信</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="center">
+                <!-- 自作萌え絵 -->
+                <img src="moe.png" alt="自作萌え絵">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="center">
+                <!-- 同盟リンクバナー -->
+                <img src="alliance1.gif" alt="同盟1">
+                <img src="alliance2.gif" alt="同盟2">
+                <img src="alliance3.gif" alt="同盟3">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="center">
+                <!-- 隠しページへのリンク -->
+                <a href="secret.html" class="hidden-link"><img src="secret.gif" alt=""></a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="center">
+                <!-- 工事中 -->
+                <img src="under_construction.gif" alt="工事中">
+                <img src="new.gif" alt="NEW">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="center">
+                <!-- その他リンク -->
+                <a href="guestbook.html">ゲストブック</a> |
+                <a href="links.html">相互リンクの部屋</a> |
+                <a href="footprint.html">足あと帳</a> |
+                <a href="baton.html">○○お題バトン</a> |
+                <a href="http://poison.net" target="_blank">毒吐きネットマナー</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
